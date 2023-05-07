@@ -1,0 +1,8 @@
+<div class="js-genre-errors"></div>
+
+<%= form_with model: genre, url: '/genre', method: :post, local: false do |f| %>
+ 
+ <%= f.label :ジャンル名 %>
+ <%= f.text_field :name, class:"name" %>
+ <%= f.submit '新規登録', class:"btn btn-info" %>
+<% end %>

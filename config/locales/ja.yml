@@ -1,0 +1,37 @@
+ja:
+  activerecord:
+    attributes:
+      genre:
+        name: ジャンル名
+      type:
+        name: タイプ名
+      food:
+       name: フード名
+       memo: メモ
+       type_id: タイプ
+       genre_id: ジャンル
+      pet:
+       name: ウチの子の名前
+       memo: メモ
+      record:
+       pet_id: ペットの名前
+       memo: メモ
+       food_id: フード
+       amount: 摂取量
+      
+  enums:
+      pet:
+        gender:
+          man: "オス"
+          woman: "メス"
+ 
+  simple_calendar:
+    previous: "<<"
+    next: ">>"
+  
+  views:
+    pagination:
+     first: "&laquo; 最初"
+     last: "最後 &raquo;"
+     previous: "<<"
+     next: ">>"

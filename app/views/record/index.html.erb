@@ -1,0 +1,74 @@
+ <%= render 'shared/aboutlink' %>
+ 
+<div class = "container-lg">
+
+<%= link_to new_record_path, class:"btn btn-warning btn-lg btn-block" do %>
+ <i class="fas fa-pen"></i>
+ 記録する
+ <i class="fas fa-pen"></i>
+<% end %>
+
+<div class="tab01 mt-3">
+<input id="menu01" type="radio" name="tab_menu" checked><label class="tab_menu" for="menu01">記録一覧</label>
+<input id="menu02" type="radio" name="tab_menu"><label class="tab_menu" for="menu02">カレンダー</label>
+
+<div class="tab_contents" id="menu01">
+<%= form_with url: search_record_index_path, local: true, method: :get do |form| %>
+ <%= form.collection_select :pet_id, @pets, :id, :name, options = { include_blank: "名前で検索" } %>
+ <%= form.submit "検索" %>
+<% end %>
+
+<div class="table-responsive">
+<table class="table text-nowrap table-light table-striped mt-3">
+<% @records.each do |record| %>
+ <tr>
+  <th colspan = "5" >
+   <%= record.created_at.strftime('%Y/%m/%d %H:%M') %>
+   <%= link_to edit_record_path(record) do %>
+     <i class="fas fa-edit"></i>
+   <% end %>
+  </th>
+ </tr>
+ <tr>
+  <th style="width: 20%">
+   <div class = "mb-2">
+    <%= image_tag record.pet.get_pet_image(50,50),class:"rounded-circle mx-3" %>
+   </div>
+   <span class = "ml-3"><%= record.pet.name %></span>
+  </th>
+  <td style="width:20%">
+   <div class = "mt-3">
+    <div><%= record.food.name %></div>
+    <span class = '<%= amount_color(record) %>'><%= record.amount %></span>
+   </div>
+  </td>
+  <td>
+   <!--モーダルメモ-->
+   <div class = "mt-3">
+     <a class="btn btn-sm btn-secondary" type="button" data-toggle="collapse" href=<%= "#collapse".concat(record.id.to_s) %>
+       aria-expanded="false" aria-controls=<%= "collapse".concat(record.id.to_s) %>>
+        memo
+     </a>
+     <div class="collapse" id=<%= "collapse".concat(record.id.to_s) %> >
+      <%= record.memo %>
+     </div>
+   </div>
+   <!--モーダルメモ-->
+  </td>
+  </tr>
+ <% end %>
+</table>
+</div>
+<div><%= paginate @records, theme: 'twitter-bootstrap-4' %></div>
+</div>
+
+<div class="tab_contents" id="menu02">
+ <%= render 'shared/calendar' %>
+</div>
+
+<!--tabの締め-->
+</div>
+
+
+
+</div>

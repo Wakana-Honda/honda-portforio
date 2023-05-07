@@ -1,0 +1,14 @@
+ <%= render 'shared/aboutlink' %>
+
+<div class = "container-lg">
+
+<div class = mb-3>
+<%= form_with model: @genre do |f| %>
+ <div><%= render 'shared/errors', model: f.object %></div>
+ <%= f.label :ジャンル名 %>
+ <%= f.text_field :name,class:"name" %>
+ <%= f.submit '変更を保存', class:"btn btn-info" %>
+<% end %>
+</div>
+
+</div>

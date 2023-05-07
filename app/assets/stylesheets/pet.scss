@@ -1,0 +1,33 @@
+.title{
+  display:flex;
+}
+
+.button{
+  padding: 20px;
+  margin: 0 0 0 auto;
+}
+
+.wrap {
+  display:flex;
+  flex-flow: column;
+  border:2px #ccc solid;
+  // // height:300px;
+  margin:0 0 1em;
+}
+
+.around {
+  -ms-flex-pack:distribute;
+  justify-content:space-around;
+}
+
+.pet {
+  display:flex;
+  padding:1em;
+  background-color:#FFCC80;
+  margin:0.5em auto;
+  width:90%;
+}
+
+// Place all the styles related to the pet controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/

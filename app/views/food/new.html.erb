@@ -1,0 +1,82 @@
+ <%= render 'shared/aboutlink' %>
+
+<div class = "container-lg">
+
+<div class ="title mb-3 h6">
+ <span class = "border rounded border-dark py-2 px-2 bg-light">
+  フードの情報を入力して下さい
+ </span>
+</div>
+
+<%= form_with model: @food, url:'/food', method: :post, local: true do |f| %>
+
+ <%= render 'shared/errors', model: f.object %>
+ 
+ <div class="form-group pt-3">
+  <%= f.label :フード画像 %>
+  <%= f.file_field :food_image,accept:"image/*" %>
+ </div>
+ 
+ <div class="form-group">
+  <%= f.label :フードの名前 %>
+  <%= f.text_field :name %>
+ </div>
+ 
+ <div class="form-group">
+  <%= f.label :genre_id,'ジャンル' %>
+  <%= f.collection_select :genre_id, @genres, :id, :name, 
+   options = { include_blank: "選択してください" } %>
+  <button type="button" class="btn btn-sm btn-success ml-3" data-toggle="modal" 
+                data-target="#genreModal" data-whatever="@genre">ジャンルを追加</button>
+ 
+ </div>
+ 
+ <div class="form-group">
+  <%= f.label :type_id,'タイプ' %>
+  <%= f.collection_select :type_id, @types, :id, :name, options = { include_blank: "選択してください" } %>
+  <button type="button" class="btn btn-sm btn-success ml-3" data-toggle="modal" 
+                           data-target="#typeModal" data-whatever="@type">タイプを追加</button>
+ </div>
+ 
+ <div class="form-group">
+  <%= f.label :メモ %>
+  <%= f.text_area :memo %>
+ </div>
+ 
+ <%= f.submit '登録する',class:"btn btn-info mb-3" %>
+ 
+<% end %>
+
+<!--ジャンルモーダル用-->
+<div class="modal fade" id="genreModal" tabindex="-1" aria-labelledby="exampleModalLabel" 
+    aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body mt-3" id="modal_genre">
+       <%= render 'shared/modal_genre', genre: @genre %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">戻る</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--タイプモーダル用-->
+<div class="modal fade" id="typeModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+   aria-hidden="true">
+ <div class="modal-dialog">
+  <div class="modal-content">
+   <div class="modal-body mt-3" id="modal_type">
+    <%= render 'shared/modal_type', type: @type %>
+   </div>
+   <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">戻る</button>
+   </div>
+  </div>
+ </div>
+</div>
+
+</div>
+
+

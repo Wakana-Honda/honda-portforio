@@ -1,0 +1,25 @@
+<div class = "title">
+ <h5><strong><%= @record.pet.name %>ちゃんの記録</strong></h5>
+</div>
+<br>
+
+<% @recorda.each do |record| %>
+ <%if record.pet_id == @record.pet.id && 
+  record.created_at.strftime('%Y/%m/%d') == @record.created_at.strftime('%Y/%m/%d') %> 
+ <div>
+ <span><%= record.created_at.strftime('%Y/%m/%d %H:%M') %></span>
+ <span><%= record.pet.name %></span>
+ <span><%= record.food.name %></span>
+ <span><%= record.amount %></span>
+ <span><%= record.memo %></span>
+ </div>
+ <% end %>
+<% end %>
+
+<div>
+<%= link_to "記録一覧に戻る",record_index_path, class:"btn btn-sm btn-secondary" %>
+<%= link_to "カレンダーに戻る",calendar_record_index_path, class:"btn btn-sm btn-secondary" %>
+</div>
+
+<br>
+

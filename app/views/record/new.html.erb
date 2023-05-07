@@ -1,0 +1,35 @@
+ <%= render 'shared/aboutlink' %>
+
+<div class = "container-lg">
+
+<%= form_with model: @record, url:'/record', method: :post do |f| %>
+
+ <%= render 'shared/errors', model: f.object %>
+
+
+ <div class="form-group">
+  <%= f.label :うちの子の名前 %>
+  <%= f.collection_select :pet_id, @pets, :id, :name, options = { include_blank: "選択してください" } %>
+ </div>
+ 
+ <div class="form-group">
+  <%= f.label :フード名 %>
+  <%= f.collection_select :food_id, @foods, :id, :name, options = { include_blank: "選択してください" } %>
+ </div>
+ 
+ <div class="form-group">
+  <%= f.label :摂取量 %>
+  <%= f.select :amount,[["完食","完食"], ["半分","半分"], ["全部残した","全部残した"]], include_blank: "選択して下さい" %>
+ </div>
+ 
+ <div class="form-group">
+  <%= f.label :メモ %>
+  <%= f.text_area :memo %>
+ </div>
+ 
+  <%= f.submit '記録する',class:"btn btn-info mb-3" %>
+  
+ 
+<% end %>
+
+</div>

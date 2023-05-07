@@ -1,0 +1,42 @@
+
+<div class = "position-relative">
+ 
+ <div id="container">
+   <div id="theTarget">
+    <div class="image1"></div>
+    <div class="image2"></div>
+    <div class="image3"></div>
+   </div>
+ </div>
+ 
+ <div class = "position-absolute text-center col-lg-12 text-light texta">
+  <div class = "textline">「昨日ウチの子何食べたっけ？」</div>
+  <div class = "textline-b">大切なペットのために食事管理を。</div>
+  <!--そんなあなたのための「ウチの子」です。-->
+ </div>
+ 
+</div>
+
+<br><br>
+<div class = "container-lg">
+<% if end_user_signed_in? %>
+   <div class = "link">
+    <span>STEP1</span>
+    <%= link_to "ウチの子を登録しよう", new_pet_path, class:'nav-link text-dark' %>
+   </div>
+   <div class = "link">
+    <span>STEP2</span>
+    <%= link_to "フードを登録しましょう", new_food_path, class:'nav-link text-dark'%>
+   </div>
+   <div class = "link">
+    <span>STEP3</span>
+    <%= link_to "記録しましょう" ,new_record_path, class:'nav-link text-dark' %>
+   </div>
+<% else %>
+ <%= link_to "ログイン",new_end_user_session_path, class:"btn btn-dark btn-lg btn-block mb-3" %>
+ <%= link_to "新規登録",new_end_user_registration_path, class:"btn btn-primary btn-lg btn-block mb-3" %>
+<% end %>
+</div>
+</div>
+
+<br><br><br>

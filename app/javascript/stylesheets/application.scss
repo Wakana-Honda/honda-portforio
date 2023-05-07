@@ -1,0 +1,348 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import "skippr"; 
+
+body{
+ font-family:Meiryo ;
+ color: #555;
+ }
+ 
+main{
+  background-color:#f6e5cc; 
+ }
+ 
+
+ #container{
+  height: 400px;
+  width: 100%;
+}
+
+.texta{
+  bottom: 10px;
+  z-index: 9999;
+}
+
+@keyframes sample{
+  0% {
+    width: 120px;
+  }
+  100% {
+    width: 360px;
+  }
+}
+
+.textline {
+  margin-bottom: 10px;
+  background-color: #00b300;
+  color: #fff;
+  animation: sample 2.5s 0s;
+  width: 360px;
+}
+
+.textline-b {
+  margin-left: 20px;
+  margin-bottom: 10px;
+  background-color: #e6e600;
+  color: #000;
+  animation: sample 2.5s 0s;
+  width: 360px;
+}
+
+ .image1 {
+  background-image: url("../images/image1.jpg");
+  background-color: rgba(160,144,137,0.4);
+  //混合モードの指定になります。
+  background-blend-mode:lighten;
+  //ついでに画像をページ全体に表示する
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top 50px ;
+ }
+ .image2 {
+  background-image: url("../images/image2.jpg");
+  background-color: rgba(160,144,137,0.4);
+  //混合モードの指定になります。
+  background-blend-mode:lighten;
+  //ついでに画像をページ全体に表示する
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+ }
+ .image3 {
+  background-image: url("../images/image3.jpg");
+  background-color: rgba(160,144,137,0.4);
+  //混合モードの指定になります。
+  background-blend-mode:lighten;
+  //ついでに画像をページ全体に表示する
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+ }
+ 
+ 
+ .btn-dark {
+   color: #fff;
+   background-color: #800000;
+   border-color: #800000;
+ }
+ 
+.btn-dark:hover, .btn-dark:focus, 
+.btn-dark:active, .btn-dark:active:focus, .btn-dark:active:hover, .btn-dark:active.focus,
+.btn-dark.active, .btn-dark.active:focus, .btn-dark.active:hover, .btn-dark.active.focus,
+.open > .dropdown-toggle.btn-dark, 
+.open > .dropdown-toggle.btn-dark:hover,
+.open > .dropdown-toggle.btn-dark:focus, 
+.open > .dropdown-toggle.btn-dark.focus,
+.btn-dark.disabled:hover, .btn-dark[disabled]:hover, fieldset[disabled] .btn-dark:hover,
+.btn-dark.disabled:focus, .btn-dark[disabled]:focus, fieldset[disabled] .btn-dark:focus,
+.btn-dark.disabled.focus, .btn-dark[disabled].focus, fieldset[disabled] .btn-dark.focus {
+    background: #800000; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    color: #fff; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+}
+ 
+ .btn-primary{
+  color: #fff;
+   background-color: #bc8f8f;
+   border-color: #bc8f8f;
+ }
+ 
+.btn-primary:hover, .btn-primary:focus, 
+.btn-primary:active, .btn-primary:active:focus, .btn-primary:active:hover, .btn-primary:active.focus,
+.btn-primary.active, .btn-primary.active:focus, .btn-primary.active:hover, .btn-primary.active.focus,
+.open > .dropdown-toggle.btn-primary, 
+.open > .dropdown-toggle.btn-primary:hover,
+.open > .dropdown-toggle.btn-primary:focus, 
+.open > .dropdown-toggle.btn-primary.focus,
+.btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover,
+.btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus,
+.btn-primary.disabled.focus, .btn-primary[disabled].focus, fieldset[disabled] .btn-primary.focus {
+    background: #bc8f8f; //ボタンの上にポインタを持ってきたり、クリックしたりした時の背景色
+    color: #fff; //ボタンの上にポインタを持ってきたり、クリックしたりした時のテキストの色
+}
+
+ 
+ .line{
+  white-space: nowrap;
+  overflow: hidden;
+ }
+ 
+ul{
+ list-style: none;
+}
+
+
+.link{
+  display: block;
+//   width: 650px;
+  padding: 10px 0;
+  margin: 10px 0px 35px 0px;
+  border-radius: 6px;
+  background-repeat: no-repeat;
+  background-position: 100% 0;
+  background-size: 200% auto;
+  background-image: linear-gradient(
+    to right,
+    #a48c61 0%,
+    #a48c61 50%,
+    #e6b85c 50%,
+    #e6b85c 100%
+  );
+  box-shadow: 0 3px 10px rgb(0 0 0 / 16%);
+  transition: background-position ease 0.4s;
+  text-align: center;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.link:hover {
+  background-position: 0 0;
+}
+
+
+.alert-warning{
+ color: #ff4500;
+ background-color:#ffe6e6;
+ border-color:#ff0000;
+ padding-top: 10px;
+ padding-right: 30px;
+ margin: 10px 250px 10px 30px;
+ display: inline-block;
+}
+
+@media only screen and (max-width: 500px) {
+ .alert-warning {
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  }
+}
+
+.alert-dismissible{
+  padding: 5px 5px 5px 3px;
+  font-size: 13px;
+}
+
+.alert-dismissible .close {
+    padding: 2px 3px 2px 0px;
+    font-size: 12px;
+  }
+  
+.alert{
+  color: #ff4500;
+}
+
+.notice{
+  border : none;
+}
+
+// ミニバーナー
+.fixed_btn { 
+position: fixed;
+bottom: 10px;
+right: 10px;
+padding: 6px 40px;
+}
+
+// ビックバーナー
+.fixed_btn_lg { 
+position: fixed;
+bottom: 10px;
+center: 10px;
+}
+
+.food_info{
+ border: 4px solid; 
+ border-color: #d3d3d3;
+ border-radius: 8px;
+ background-color :#ffffff;
+}
+
+.table{
+  // width: 400px;
+  max-width: 100%;
+  background-color: #f8f9fa
+}
+
+.sticky {
+  display: inline-block;
+  width: 150px;
+  height: 30px;
+  padding: 0.2em 0.5em;
+  text-decoration: none;
+  background: #f7f7f7;
+  border-left: solid 6px #9acd32;/*左線*/
+  color: #696969;/*文字色*/
+  font-weight: bold;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  overflow: scroll;
+  // overflow-wrap: break-word;
+}
+.sticky:active {
+  box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+  transform: translateY(2px);
+}
+
+
+@keyframes hidden1 {
+ 
+  from {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.liner{
+ position: relative;
+ background: linear-gradient(transparent 40%, yellow 40%);
+}
+
+.pet-box {
+    position: relative;
+    display: inline-block;
+}
+
+.nameplate {
+  position: absolute;
+  display: inline-block;
+  padding: 0em 0.5em;
+  text-decoration: none;
+  background: #b36b77;
+  color: #FFF;
+  border-radius: 4px;
+  box-shadow: 0px 0px 0px 5px #b36b77;
+  border: dashed 1px #FFF;
+  bottom: 0px;    /* 記述追加 重ねたい Y位置を指定 */
+  right: 0px;   /* 記述追加 重ねたい X位置を指定 */
+}
+
+.nameplate:hover {
+  border: dotted 1px #FFF;
+}
+
+.text-green{
+  background-image: linear-gradient(transparent 70%, #98fb98 0%)
+}
+
+.text-yellow{
+  background-image: linear-gradient(transparent 70%, #ffff00 0%)
+}
+
+.text-red{
+  background-image: linear-gradient(transparent 70%, #ff6347 0%)
+}
+
+
+.tab01 {
+  width: 100%;
+  margin: 0 auto 50px;
+}
+/*タブのスタイル*/
+.tab_menu {
+  width: calc(100%/3);
+  height: 30px;
+  line-height: 30px;
+  font-size: 13px;
+  text-align: center;
+  color: #000;
+  border-bottom: 3px solid #1f71b5;
+  background-color: #d9d9d9;
+  display: block;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+.tab_menu:hover {
+  opacity: 0.75;
+}
+/*ラジオボタンを全て消す*/
+input[name="tab_menu"] {
+  display: none;
+}
+/*タブ切り替えの中身のスタイル*/
+.tab_contents {
+  display: none;
+  // padding: 40px;
+  clear: both;
+  overflow: hidden;
+  transition: .5s opacity;
+  // box-shadow: 0 0 3px rgba(0,0,0,.2);
+}
+/*選択されているタブを表示*/
+#menu01:checked ~ #menu01,
+#menu02:checked ~ #menu02{
+  display: block;
+}
+/*選択されているタブのスタイル*/
+.tab01 input:checked + .tab_menu {
+  background-color: #1f71b5;
+  color: #fff;
+}

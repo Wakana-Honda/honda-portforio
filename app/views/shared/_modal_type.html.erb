@@ -1,0 +1,8 @@
+<div class="js-type-errors"></div>
+
+<%= form_with model: type, url: '/type', method: :post, local: false do |f| %>
+
+ <%= f.label :タイプ %>
+ <%= f.text_field :name %>
+ <%= f.submit '新規登録',class:"btn btn-info" %>
+<% end %>

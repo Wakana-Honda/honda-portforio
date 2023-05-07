@@ -1,0 +1,44 @@
+ <%= render 'shared/aboutlink' %>
+
+<div class = "container-lg">
+
+<%= form_with model: @pet, url: '/pet', method: :post do |f| %>
+  
+  <%= render 'shared/errors', model: f.object %>
+ 
+ <div class="form-group">
+  <%= f.label :ウチの子の写真 %>
+  <%= f.file_field :pet_image,accept:"image/*" %>
+ </div>
+ <div class="form-group">
+  <%= f.label :名前 %>
+  <%= f.text_field :name %>
+ </div>
+ <div class="form-group">
+  <%= f.label :年齢 %>
+  <%= f.select :age, *[0..30], prompt:"--" %>
+ </div>
+ <div class="form-group">
+  <%= f.label :誕生日 %>
+  <%= f.date_select :birthday, use_month_numbers: true,prompt:"--",
+     start_year: 1992, end_year: (Time.now.year) %>
+     <!--, default: Date.new(1989, 1, 1)-->
+     <!--, date_separator: '%s'),'年','月')+'日'-->
+
+ </div>
+ <div class="form-group">
+	<%= f.label :性別 %>
+  <%= f.radio_button :gender,"man" %>
+  <%= f.label :gender, "オス" %>
+  <%= f.radio_button :gender, "woman" %>
+  <%= f.label :gender, "メス"%>
+ </div>
+ <div class="form-group">
+  <%= f.label :メモ %>
+  <%= f.text_area :memo %>
+ </div>
+	
+  <%= f.submit '登録する',class:"btn btn-info mb-3" %>
+<% end %>
+
+</div>

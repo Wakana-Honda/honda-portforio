@@ -1,0 +1,70 @@
+ <%= render 'shared/aboutlink' %>
+ 
+<div class = "container-lg">
+
+<%= link_to new_record_path, class:"btn btn-warning btn-lg btn-block" do %>
+ <i class="fas fa-pen"></i>
+ 記録する
+ <i class="fas fa-pen"></i>
+<% end %>
+<div class = "title mt-3">
+ <h5><strong><%= @record.pet.name %>ちゃんの<%= @record.created_at.strftime('%Y/%m/%d') %>記録</strong></h5>
+</div>
+
+<div class="table-responsive">
+<table class="table text-nowrap table-light table-striped">
+
+<% @records.each do |record| %>
+ <%if record.pet_id == @record.pet.id && 
+  record.created_at.strftime('%Y/%m/%d') == @record.created_at.strftime('%Y/%m/%d') %> 
+ <tr>
+  <th colspan = "5" >
+  <%= record.created_at.strftime('%H:%M') %>
+  <%= link_to edit_record_path(record) do %>
+     <i class="fas fa-edit"></i>
+   <% end %>
+  </th>
+ </tr>
+ <tr>
+  <th style="width: 20%">
+   <div class = "mb-2">
+    <%= image_tag record.pet.get_pet_image(50,50),class:"rounded-circle mx-3" %>
+   </div>
+   <span class = "ml-3"><%= record.pet.name %></span>
+  </th>
+  <td style="width:20%">
+   <div class = "mt-3">
+    <div><%= record.food.name %></div>
+    <span class = '<%= amount_color(record) %>'><%= record.amount %></span>
+   </div>
+  </td>
+  <!--モーダルメモ-->
+  <td>
+   <div class = "mt-3">
+     <a class="btn btn-sm btn-secondary" type="button" data-toggle="collapse" href=<%= "#collapse".concat(record.id.to_s) %>
+       aria-expanded="false" aria-controls=<%= "collapse".concat(record.id.to_s) %>>
+        memo
+     </a>
+     <div class="collapse" id=<%= "collapse".concat(record.id.to_s) %> >
+      <%= record.memo %>
+     </div>
+   </div>
+  </td>
+  </tr>
+ <% end %>
+<% end %>
+
+</table>
+</div>
+
+<div>
+<%= link_to "記録一覧に戻る", record_index_path, class:"btn btn-sm btn-secondary" %>
+<%= link_to "カレンダーに戻る", record_index_path(anchor:'menu02.tab_contents'), class:"btn btn-sm btn-secondary" %>
+<a href = "/record/#calendar">戻る</a>
+
+</div>
+
+<br>
+
+</div>
+

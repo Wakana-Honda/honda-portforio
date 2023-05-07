@@ -1,0 +1,33 @@
+ <%= render 'shared/aboutlink' %>
+ 
+<div class = "container-lg">
+
+<%= form_with model: @type, url: '/type', method: :post do |f| %>
+ <div><%= render 'shared/errors', model: f.object %></div>
+  <%= f.text_field :name,placeholder:"タイプを入力",class:"name mt-3 ml-2"  %>
+  <%= f.submit '新規登録',class:"btn btn-info" %>
+<% end %>
+
+<div class = "my-3"><strong><u>タイプ一覧</u></strong></div>
+
+<% if @types.count == 0 %>  
+  <div class = "mb-3">タイプが登録されていません。<br>フードタイプを登録しましょう！<br>ex.ドライタイプ,ウエットタイプetc..</div>
+<% else %>
+
+ <% @types.each do |type| %>
+  <div class = "mt-2 mb-3">
+   <div class = "row">
+    <div class = "col-6"><%= type.name %></div>
+    <div class = "col-6">
+     <%= link_to "編集する", edit_type_path(type), class:"btn btn-sm btn-success " %>
+      <%= link_to "削除", type_path(type),method: :delete,
+      "data-confirm" => "関連するフードの記録も削除されます。本当に削除しますか？", class:"btn btn-sm btn-danger mb-1" %>
+     </div>
+    </div>
+   </div>
+ <% end %>
+  
+<% end %>
+
+</div>
+  

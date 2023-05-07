@@ -1,0 +1,18 @@
+<div class="table-responsive" id="calendar">
+<div class="calendar">
+<%= month_calendar events: @record_cale do |date, records| %>
+  <%= date.day %>
+  <% @record_cale.each do |record| %>
+   <%if record.created_at.strftime('%Y-%m-%d') == date.strftime('%Y-%m-%d') %> 
+    <div>
+     <%= link_to record_path(record), class:"btn btn-sm btn-primary px-3 rounded-pill my-1" do %>
+      <%= record.pet.name.slice(0)%>
+     <% end %>
+    </div>
+   <% end %>
+  <% end %>
+  
+<% end %>
+</div>
+
+</div>

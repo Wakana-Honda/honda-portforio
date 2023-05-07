@@ -1,0 +1,35 @@
+ <%= render 'shared/aboutlink' %>
+ 
+<div class = "container-lg">
+
+<%= form_with model: @genre, url: '/genre', method: :post do |f| %>
+ <div><%= render 'shared/errors', model: f.object %></div>
+ <%= f.text_field :name,placeholder:"ジャンルを入力", class:"name mt-3 ml-2" %>
+ <%= f.submit '新規登録',class:"btn btn-info" %>
+<% end %>
+
+<div class = "my-3"><strong><u>ジャンル一覧</u></strong></div>
+ 
+<% if @genres.count == 0 %>  
+  <div class = "mb-3">ジャンルが登録されていません。<br>フードジャンルを登録しましょう！<br>ex.メインフード,おやつetc..</div>
+<% else %>
+
+  <% @genres.each do |genre| %>
+   <div class = "mt-2 mb-3">
+    <div class = "row">
+     <div class = "col-6"><%= genre.name %></div>
+     <div class = "col-6">
+      <%= link_to "編集する", edit_genre_path(genre), class:"btn btn-sm btn-success" %>
+      <%= link_to "削除", genre_path(genre),method: :delete,
+      "data-confirm" => "関連するフードの記録も削除されます。本当に削除しますか？", class:"btn btn-sm btn-danger" %>
+     </div>
+    </div>
+   </div>
+  <% end %>
+
+ <% end %>
+ 
+ </div>
+  
+ 
+
