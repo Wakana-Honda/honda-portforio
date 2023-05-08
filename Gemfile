@@ -71,13 +71,13 @@ gem 'bulma-extensions-rails', '~> 1.0.30'
 
 # デプロイしたい時に外す
 
-# gem 'dotenv-rails'
-# group :production do
-#   gem 'mysql2'
-# end
+gem 'dotenv-rails'
+group :production do
+   gem 'mysql2'
+end
 
-# gem "net-smtp"
-# gem "net-pop"
-# gem "net-imap"
+gem "net-smtp"
+gem "net-pop"
+gem "net-imap"
 
 # デプロイしたい時に変更
